@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Repository: Codable {
+struct Repository: Decodable {
     var name: String
-    var language: String
+    var language: String?
     var htmlUrl: String
 }

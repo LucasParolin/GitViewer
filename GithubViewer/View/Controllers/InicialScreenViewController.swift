@@ -8,8 +8,9 @@
 import UIKit
 
 class InicialScreenViewController: UIViewController {
-
+    
     let customView = InicialScreenView()
+    let getApi = GetApi()
     
     override func loadView() {
         view = customView
@@ -21,33 +22,31 @@ class InicialScreenViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-    @objc func getData(){
+    
+    @objc func getData() {
         
-        var semaphore = DispatchSemaphore (value: 0)
-
-        var request = URLRequest(url: URL(string: "https://api.github.com/users/\(customView.userName.text ?? "")")!,timeoutInterval: Double.infinity)
-        request.httpMethod = "GET"
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-          guard let data = data else {
-            print(String(describing: error))
-            semaphore.signal()
-            return
-          }
+        getApi.getInfo(User.self, url: "https://api.github.com/users/\(customView.userName.text ?? "")") { user in
+            guard let user = user else{
+                return
+            }
             
-            let decoder = JSONDecoder()
-            
-          print(String(data: data, encoding: .utf8)!)
-          semaphore.signal()
+            self.getApi.getInfo([Repository].self, url: "https://api.github.com/users/\(self.customView.userName.text ?? "")/repos") {repos in
+                guard let repos = repos else{
+                    return
+                }
+                // AQUI BOTA A LÓGICA PRA PASSAR DE TELA PRA TELA MEU AMIGÃO
+                let repositoriesTableController = RepositoriesTableController()
+                repositoriesTableController.customView.lblName.text = user.name
+                repositoriesTableController.customView.imageLogo.downloaded(from: user.avatarUrl ?? "")
+                repositoriesTableController.repository = repos
+                self.navigationController?.pushViewController(repositoriesTableController, animated: true)
+            }
         }
-
-        task.resume()
-        semaphore.wait()
-        
-        let repositoriesTableController = RepositoriesTableController()
-        self.navigationController?.pushViewController(repositoriesTableController, animated: true)
     }
-
 }
 
+extension InicialScreenViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}

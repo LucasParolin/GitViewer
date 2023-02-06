@@ -20,6 +20,8 @@
 		FFEB549B298AB3BC0082CC06 /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB549A298AB3BC0082CC06 /* RepositoriesTableViewController.swift */; };
 		FFEB549E298AB4970082CC06 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB549D298AB4970082CC06 /* Repository.swift */; };
 		FFEB54A0298AC8E80082CC06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB549F298AC8E80082CC06 /* User.swift */; };
+		FFF7A56E29913A0600CECAAB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF7A56D29913A0600CECAAB /* UIImageView+Extension.swift */; };
+		FFFC4F16298D789D003A219D /* GetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC4F15298D789D003A219D /* GetApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		FFEB549A298AB3BC0082CC06 /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		FFEB549D298AB4970082CC06 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FFEB549F298AC8E80082CC06 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FFF7A56D29913A0600CECAAB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		FFFC4F15298D789D003A219D /* GetApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +74,9 @@
 		FFEB546F298A9D8E0082CC06 /* GithubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				FFFC4F13298D7888003A219D /* Network */,
 				FFEB549C298AB4520082CC06 /* Models */,
-				FFEB5487298AA1ED0082CC06 /* UIView+Extension */,
+				FFEB5487298AA1ED0082CC06 /* Extensions */,
 				FFEB5486298AA0E20082CC06 /* Delegates */,
 				FFEB5485298AA0CD0082CC06 /* View */,
 				FFEB5479298A9D900082CC06 /* Assets.xcassets */,
@@ -110,12 +115,13 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
-		FFEB5487298AA1ED0082CC06 /* UIView+Extension */ = {
+		FFEB5487298AA1ED0082CC06 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				FFEB5488298AA20D0082CC06 /* UIView+Extension.swift */,
+				FFF7A56D29913A0600CECAAB /* UIImageView+Extension.swift */,
 			);
-			path = "UIView+Extension";
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FFEB548A298AA22B0082CC06 /* Base */ = {
@@ -158,6 +164,14 @@
 				FFEB549F298AC8E80082CC06 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FFFC4F13298D7888003A219D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FFFC4F15298D789D003A219D /* GetApi.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +246,11 @@
 			files = (
 				FFEB548F298AA2C70082CC06 /* InicialScreenView.swift in Sources */,
 				FFEB5499298AB38F0082CC06 /* RepositoriesTableView.swift in Sources */,
+				FFF7A56E29913A0600CECAAB /* UIImageView+Extension.swift in Sources */,
 				FFEB5489298AA20D0082CC06 /* UIView+Extension.swift in Sources */,
 				FFEB5475298A9D8E0082CC06 /* InicialScreenViewController.swift in Sources */,
 				FFEB5471298A9D8E0082CC06 /* AppDelegate.swift in Sources */,
+				FFFC4F16298D789D003A219D /* GetApi.swift in Sources */,
 				FFEB5493298AB2490082CC06 /* BaseCell.swift in Sources */,
 				FFEB5496298AB2BA0082CC06 /* RepositoriesTableViewCell.swift in Sources */,
 				FFEB549E298AB4970082CC06 /* Repository.swift in Sources */,
@@ -379,6 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2J39S9R735;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubViewer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -406,6 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2J39S9R735;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubViewer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

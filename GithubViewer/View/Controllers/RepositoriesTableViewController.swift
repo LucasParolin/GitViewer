@@ -27,18 +27,25 @@ class RepositoriesTableController: UIViewController {
 extension RepositoriesTableController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return repository.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: customView.cellId, for: indexPath) as! RepositoriesTableViewCell
+        let repo = repository[indexPath.item]
+                
+        cell.repositoryName.text = repo.name
+        cell.repositoryLanguage.text = repo.language
         
-        //        cell.student = students[indexPath.item]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        getStudent(students[indexPath.item])
+        
+        let urlTeste = repository[indexPath.item]
+        if let url = URL(string: urlTeste.htmlUrl){
+            UIApplication.shared.open(url)
+        }
     }
 }
 
